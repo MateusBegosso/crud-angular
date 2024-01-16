@@ -4,6 +4,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { Course } from '../model/course';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -13,6 +14,10 @@ import { Course } from '../model/course';
   styleUrl: './courses.component.scss',
 })
 export class CoursesComponent {
-  courses: Course[] = [{ _id: '1', name: 'Angular', category: 'Front-end' }];
+  courses: Course[] = [];
   displayedColumns: string[] = ['name', 'category'];
+
+  constructor(private coursesService: CoursesService) {
+    this.courses = coursesService.list();
+  }
 }
