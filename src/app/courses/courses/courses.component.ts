@@ -18,7 +18,7 @@ import { SharedModule } from '../../shared/shared.module';
 })
 export class CoursesComponent {
   courses$: Observable<Course[]>;
-  displayedColumns: string[] = ['name', 'category'];
+  displayedColumns: string[] = ['_id', 'name', 'category'];
 
   constructor(
     private coursesService: CoursesService,
