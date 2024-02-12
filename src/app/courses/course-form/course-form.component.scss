@@ -1,0 +1,24 @@
+.full-width {
+  width: 100%;
+}
+
+.mdc-card {
+  max-width: 90%;
+  min-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.min-width {
+  width: 100%;
+  min-width: 150px;
+}
+
+.mat-toolbar {
+  border-radius: 10px 10px 0 0;
+}
+
+.mdc-card__actions {
+  justify-content: center;
+  gap: 1em;
+}
