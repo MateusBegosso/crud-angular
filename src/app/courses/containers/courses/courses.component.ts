@@ -1,25 +1,31 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 
-import { AppMaterialModule } from '../../shared/app-material/app-material.module';
-import { Course } from '../model/course';
-import { CoursesService } from '../services/courses.service';
-import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
-import { SharedModule } from '../../shared/shared.module';
-import { ActivatedRoute, Router } from '@angular/router';
+import { AppMaterialModule } from '../../../shared/app-material/app-material.module';
+import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
+import { SharedModule } from '../../../shared/shared.module';
+import { CoursesListComponent } from '../../components/courses-list/courses-list.component';
+import { Course } from '../../model/course';
+import { CoursesService } from '../../services/courses.service';
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [AppMaterialModule, AsyncPipe, NgIf, SharedModule],
+  imports: [
+    AppMaterialModule,
+    AsyncPipe,
+    NgIf,
+    SharedModule,
+    CoursesListComponent,
+  ],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss',
 })
 export class CoursesComponent {
   courses$: Observable<Course[]>;
-  displayedColumns: string[] = ['name', 'category', 'actions'];
 
   constructor(
     private coursesService: CoursesService,
